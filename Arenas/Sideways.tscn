@@ -1,0 +1,282 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Blocks/SquareBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bilder/Blocks/spike.png" type="Texture" id=2]
+[ext_resource path="res://BaseArena.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/Steam.tscn" type="PackedScene" id=4]
+
+[node name="Simple" instance=ExtResource( 3 )]
+
+[node name="CollisionPolygon2D" parent="Collision/BaseCollision" index="0"]
+polygon = PoolVector2Array( -144, -114, -144, 14, 144, 14, 144, -114, 1, -114, 1, -146, 148, -146, 149, 46, -148, 46, -148, -146, -1, -146, -1, -114 )
+
+[node name="SteamLeft" parent="Effects" index="0"]
+position = Vector2( -144, -93 )
+rotation = 1.57079
+
+[node name="SteamRight" parent="Effects" index="1"]
+position = Vector2( 144, -76 )
+rotation = -1.57079
+
+[node name="Steam" parent="Effects" index="2" instance=ExtResource( 4 )]
+position = Vector2( -144, -9 )
+rotation = 1.57079
+
+[node name="Steam2" parent="Effects" index="3" instance=ExtResource( 4 )]
+position = Vector2( 144, -6 )
+rotation = -1.57079
+
+[node name="Sprite" type="Sprite" parent="Spikes" index="0"]
+position = Vector2( -136, -106 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Spikes" index="1"]
+position = Vector2( -136, -90 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Spikes" index="2"]
+position = Vector2( -136, -74 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Spikes" index="3"]
+position = Vector2( -136, -58 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Spikes" index="4"]
+position = Vector2( -136, -42 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite16" type="Sprite" parent="Spikes" index="5"]
+position = Vector2( -136, -26 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite17" type="Sprite" parent="Spikes" index="6"]
+position = Vector2( -136, -10 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite18" type="Sprite" parent="Spikes" index="7"]
+position = Vector2( -136, 6 )
+rotation = 1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="Spikes" index="8"]
+position = Vector2( 136, -10 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite15" type="Sprite" parent="Spikes" index="9"]
+position = Vector2( 136, 6 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="Spikes" index="10"]
+position = Vector2( 136, -26 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="Spikes" index="11"]
+position = Vector2( 136, -42 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite11" type="Sprite" parent="Spikes" index="12"]
+position = Vector2( 136, -58 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite12" type="Sprite" parent="Spikes" index="13"]
+position = Vector2( 136, -74 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite13" type="Sprite" parent="Spikes" index="14"]
+position = Vector2( 136, -90 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="Sprite14" type="Sprite" parent="Spikes" index="15"]
+position = Vector2( 136, -106 )
+rotation = -1.57079
+texture = ExtResource( 2 )
+
+[node name="SquareBlock1" parent="Blocks" index="0" instance=ExtResource( 1 )]
+position = Vector2( 0, 30 )
+
+[node name="SquareBlock2" parent="Blocks" index="1" instance=ExtResource( 1 )]
+position = Vector2( -32, 30 )
+
+[node name="SquareBlock3" parent="Blocks" index="2" instance=ExtResource( 1 )]
+position = Vector2( -64, 30 )
+
+[node name="SquareBlock4" parent="Blocks" index="3" instance=ExtResource( 1 )]
+position = Vector2( -96, 30 )
+
+[node name="SquareBlock5" parent="Blocks" index="4" instance=ExtResource( 1 )]
+position = Vector2( -128, 30 )
+
+[node name="SquareBlock10" parent="Blocks" index="5" instance=ExtResource( 1 )]
+position = Vector2( -128, -130 )
+
+[node name="SquareBlock19" parent="Blocks" index="6" instance=ExtResource( 1 )]
+position = Vector2( -160, -130 )
+
+[node name="SquareBlock20" parent="Blocks" index="7" instance=ExtResource( 1 )]
+position = Vector2( -160, -98 )
+
+[node name="SquareBlock21" parent="Blocks" index="8" instance=ExtResource( 1 )]
+position = Vector2( -160, -66 )
+
+[node name="SquareBlock22" parent="Blocks" index="9" instance=ExtResource( 1 )]
+position = Vector2( -160, -34 )
+
+[node name="SquareBlock27" parent="Blocks" index="10" instance=ExtResource( 1 )]
+position = Vector2( -160, -2 )
+
+[node name="SquareBlock28" parent="Blocks" index="11" instance=ExtResource( 1 )]
+position = Vector2( -160, 30 )
+
+[node name="SquareBlock29" parent="Blocks" index="12" instance=ExtResource( 1 )]
+position = Vector2( 160, -2 )
+
+[node name="SquareBlock30" parent="Blocks" index="13" instance=ExtResource( 1 )]
+position = Vector2( 160, 30 )
+
+[node name="SquareBlock31" parent="Blocks" index="14" instance=ExtResource( 1 )]
+position = Vector2( 160, -66 )
+
+[node name="SquareBlock32" parent="Blocks" index="15" instance=ExtResource( 1 )]
+position = Vector2( 160, -34 )
+
+[node name="SquareBlock33" parent="Blocks" index="16" instance=ExtResource( 1 )]
+position = Vector2( 160, -130 )
+
+[node name="SquareBlock34" parent="Blocks" index="17" instance=ExtResource( 1 )]
+position = Vector2( 160, -98 )
+
+[node name="SquareBlock11" parent="Blocks" index="18" instance=ExtResource( 1 )]
+position = Vector2( -96, -130 )
+
+[node name="SquareBlock12" parent="Blocks" index="19" instance=ExtResource( 1 )]
+position = Vector2( -64, -130 )
+
+[node name="SquareBlock13" parent="Blocks" index="20" instance=ExtResource( 1 )]
+position = Vector2( -32, -130 )
+
+[node name="SquareBlock14" parent="Blocks" index="21" instance=ExtResource( 1 )]
+position = Vector2( 0, -130 )
+
+[node name="SquareBlock15" parent="Blocks" index="22" instance=ExtResource( 1 )]
+position = Vector2( 32, -130 )
+
+[node name="SquareBlock16" parent="Blocks" index="23" instance=ExtResource( 1 )]
+position = Vector2( 64, -130 )
+
+[node name="SquareBlock17" parent="Blocks" index="24" instance=ExtResource( 1 )]
+position = Vector2( 96, -130 )
+
+[node name="SquareBlock18" parent="Blocks" index="25" instance=ExtResource( 1 )]
+position = Vector2( 128, -130 )
+
+[node name="SquareBlock23" parent="Blocks" index="26" instance=ExtResource( 1 )]
+position = Vector2( 128, 30 )
+
+[node name="SquareBlock24" parent="Blocks" index="27" instance=ExtResource( 1 )]
+position = Vector2( 96, 30 )
+
+[node name="SquareBlock25" parent="Blocks" index="28" instance=ExtResource( 1 )]
+position = Vector2( 64, 30 )
+
+[node name="SquareBlock26" parent="Blocks" index="29" instance=ExtResource( 1 )]
+position = Vector2( 32, 30 )
+
+[node name="SquareBlock6" parent="Blocks" index="30" instance=ExtResource( 1 )]
+position = Vector2( 0, 62 )
+
+[node name="SquareBlock7" parent="Blocks" index="31" instance=ExtResource( 1 )]
+position = Vector2( -32, 62 )
+
+[node name="SquareBlock8" parent="Blocks" index="32" instance=ExtResource( 1 )]
+position = Vector2( -64, 62 )
+
+[node name="SquareBlock9" parent="Blocks" index="33" instance=ExtResource( 1 )]
+position = Vector2( -96, 62 )
+
+[node name="SquareBlock35" parent="Blocks" index="34" instance=ExtResource( 1 )]
+position = Vector2( -128, 62 )
+
+[node name="SquareBlock36" parent="Blocks" index="35" instance=ExtResource( 1 )]
+position = Vector2( -160, 62 )
+
+[node name="SquareBlock37" parent="Blocks" index="36" instance=ExtResource( 1 )]
+position = Vector2( 160, 62 )
+
+[node name="SquareBlock38" parent="Blocks" index="37" instance=ExtResource( 1 )]
+position = Vector2( 128, 62 )
+
+[node name="SquareBlock39" parent="Blocks" index="38" instance=ExtResource( 1 )]
+position = Vector2( 96, 62 )
+
+[node name="SquareBlock40" parent="Blocks" index="39" instance=ExtResource( 1 )]
+position = Vector2( 64, 62 )
+
+[node name="SquareBlock41" parent="Blocks" index="40" instance=ExtResource( 1 )]
+position = Vector2( 32, 62 )
+
+[node name="SquareBlock42" parent="Blocks" index="41" instance=ExtResource( 1 )]
+position = Vector2( 0, -162 )
+
+[node name="SquareBlock43" parent="Blocks" index="42" instance=ExtResource( 1 )]
+position = Vector2( -32, -162 )
+
+[node name="SquareBlock44" parent="Blocks" index="43" instance=ExtResource( 1 )]
+position = Vector2( -64, -162 )
+
+[node name="SquareBlock45" parent="Blocks" index="44" instance=ExtResource( 1 )]
+position = Vector2( -96, -162 )
+
+[node name="SquareBlock46" parent="Blocks" index="45" instance=ExtResource( 1 )]
+position = Vector2( -128, -162 )
+
+[node name="SquareBlock47" parent="Blocks" index="46" instance=ExtResource( 1 )]
+position = Vector2( -160, -162 )
+
+[node name="SquareBlock48" parent="Blocks" index="47" instance=ExtResource( 1 )]
+position = Vector2( 160, -162 )
+
+[node name="SquareBlock49" parent="Blocks" index="48" instance=ExtResource( 1 )]
+position = Vector2( 128, -162 )
+
+[node name="SquareBlock50" parent="Blocks" index="49" instance=ExtResource( 1 )]
+position = Vector2( 96, -162 )
+
+[node name="SquareBlock51" parent="Blocks" index="50" instance=ExtResource( 1 )]
+position = Vector2( 64, -162 )
+
+[node name="SquareBlock52" parent="Blocks" index="51" instance=ExtResource( 1 )]
+position = Vector2( 32, -162 )
+
+[node name="Net" parent="." index="4"]
+position = Vector2( -290, 317 )
+
+[node name="DeathLeft" parent="." index="5"]
+position = Vector2( -143, -60 )
+rotation = 1.57079
+
+[node name="CollisionShape2D" parent="DeathLeft" index="0"]
+position = Vector2( 9.99999, 0.500031 )
+
+[node name="DeathRight" parent="." index="6"]
+position = Vector2( 144, -50 )
+rotation = 1.57079
+
+[node name="Camera" parent="." index="7"]
+zoom = Vector2( 0.3, 0.3 )
+
+[editable path="DeathLeft"]
