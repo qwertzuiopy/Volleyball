@@ -1,0 +1,278 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Blocks/SquareBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bilder/Blocks/spike.png" type="Texture" id=2]
+[ext_resource path="res://Blocks/Net.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Effects/Steam.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bilder/UI/Labels/title.png" type="Texture" id=5]
+[ext_resource path="res://Bilder/Effects/black.png" type="Texture" id=6]
+[ext_resource path="res://UI/BaseSellector.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Bilder/UI/Labels/play.png" type="Texture" id=8]
+[ext_resource path="res://UI/TitleScreen.gd" type="Script" id=9]
+[ext_resource path="res://Balls/SquareBall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Balls/RoundBall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Bilder/UI/Labels/arena_small.png" type="Texture" id=12]
+[ext_resource path="res://Bilder/UI/Labels/square.png" type="Texture" id=13]
+[ext_resource path="res://Bilder/UI/Labels/round.png" type="Texture" id=14]
+[ext_resource path="res://Bilder/UI/Labels/arena_chaos.png" type="Texture" id=15]
+[ext_resource path="res://Bilder/UI/Labels/arena_tube.png" type="Texture" id=16]
+[ext_resource path="res://Bilder/UI/Labels/arena_side.png" type="Texture" id=17]
+[ext_resource path="res://Effects/Environment.tres" type="Environment" id=18]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 0, 17 )
+current = true
+zoom = Vector2( 0.23, 0.23 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Effects" type="Node2D" parent="Background"]
+
+[node name="Steam" parent="Background/Effects" instance=ExtResource( 4 )]
+position = Vector2( 30, 79 )
+
+[node name="Steam2" parent="Background/Effects" instance=ExtResource( 4 )]
+position = Vector2( -97, 80 )
+
+[node name="Deko" type="Node2D" parent="Background/Effects"]
+
+[node name="Net" parent="Background/Effects/Deko" instance=ExtResource( 3 )]
+position = Vector2( 96, 36 )
+
+[node name="Net2" parent="Background/Effects/Deko" instance=ExtResource( 3 )]
+position = Vector2( -32, -28 )
+
+[node name="Blocks" type="Node2D" parent="Background"]
+
+[node name="SquareBlock1" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, 0 )
+
+[node name="SquareBlock2" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, -32 )
+
+[node name="SquareBlock3" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, -64 )
+
+[node name="SquareBlock4" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, 32 )
+
+[node name="SquareBlock5" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, 64 )
+
+[node name="SquareBlock15" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, 0 )
+
+[node name="SquareBlock16" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, -32 )
+
+[node name="SquareBlock17" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, -64 )
+
+[node name="SquareBlock18" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, 32 )
+
+[node name="SquareBlock19" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, 64 )
+
+[node name="SquareBlock6" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, 96 )
+
+[node name="SquareBlock7" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -96, 96 )
+
+[node name="SquareBlock8" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -64, 96 )
+
+[node name="SquareBlock29" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -64, 64 )
+
+[node name="SquareBlock30" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -32, 64 )
+
+[node name="SquareBlock31" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -32, 32 )
+
+[node name="SquareBlock32" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -32, 0 )
+
+[node name="SquareBlock33" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 32 )
+
+[node name="SquareBlock34" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 96, 64 )
+
+[node name="SquareBlock35" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 64, -64 )
+
+[node name="SquareBlock36" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 64, -32 )
+
+[node name="SquareBlock37" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 32, -32 )
+
+[node name="SquareBlock38" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -96, -32 )
+
+[node name="SquareBlock9" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -32, 96 )
+
+[node name="SquareBlock10" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 96 )
+
+[node name="SquareBlock11" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 32, 96 )
+
+[node name="SquareBlock12" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 64, 96 )
+
+[node name="SquareBlock13" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 96, 96 )
+
+[node name="SquareBlock14" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, 96 )
+
+[node name="SquareBlock20" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -128, -96 )
+
+[node name="SquareBlock21" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -96, -96 )
+
+[node name="SquareBlock22" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -64, -96 )
+
+[node name="SquareBlock23" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( -32, -96 )
+
+[node name="SquareBlock24" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 0, -96 )
+
+[node name="SquareBlock25" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 32, -96 )
+
+[node name="SquareBlock26" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 64, -96 )
+
+[node name="SquareBlock27" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 96, -96 )
+
+[node name="SquareBlock28" parent="Background/Blocks" instance=ExtResource( 1 )]
+position = Vector2( 128, -96 )
+
+[node name="Spikes" type="Node2D" parent="Background"]
+
+[node name="Sprite" type="Sprite" parent="Background/Spikes"]
+position = Vector2( -104, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Background/Spikes"]
+position = Vector2( -88, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Background/Spikes"]
+position = Vector2( -8, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Background/Spikes"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Background/Spikes"]
+position = Vector2( 24, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="Background/Spikes"]
+position = Vector2( 40, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="Background/Spikes"]
+position = Vector2( 56, 72 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="Background/Spikes"]
+position = Vector2( 72, 72 )
+texture = ExtResource( 2 )
+
+[node name="Collision" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Collision"]
+polygon = PoolVector2Array( -112, 80, -80, 80, -80, 48, -48, 48, -48, -16, -36, -16, -36, -40, -29, -40, -28, -16, -16, -16, -16, 16, 16, 16, 16, 48, -16, 48, -16, 80, 80, 80, 80, 48, 92, 48, 92, 24, 100, 24, 100, 48, 112, 48, 112, -80, 80, -80, 80, -16, 16, -16, 16, -48, 48, -48, 48, -80, 1, -80, 1, -112, 144, -112, 144, 112, -144, 112, -144, -112, -1, -112, -1, -80, -112, -80, -112, -48, -80, -48, -80, -16, -112, -16 )
+
+[node name="Balls" type="Node2D" parent="Background"]
+
+[node name="SquareBall" parent="Background/Balls" instance=ExtResource( 10 )]
+position = Vector2( 95, -62 )
+
+[node name="SquareBall2" parent="Background/Balls" instance=ExtResource( 11 )]
+position = Vector2( -78, -65 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.505882 )
+margin_left = -146.0
+margin_top = -113.0
+margin_right = 145.0
+margin_bottom = 111.0
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Title" type="Sprite" parent="UI"]
+position = Vector2( 0, -17 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+
+[node name="ArenaSellector" parent="UI" instance=ExtResource( 7 )]
+position = Vector2( 0, 9 )
+scale = Vector2( 2, 2 )
+
+[node name="Sprite3" type="Sprite" parent="UI/ArenaSellector/Label" index="2"]
+visible = false
+light_mask = 2
+texture = ExtResource( 12 )
+
+[node name="Sprite4" type="Sprite" parent="UI/ArenaSellector/Label" index="3"]
+visible = false
+light_mask = 2
+texture = ExtResource( 15 )
+
+[node name="Sprite5" type="Sprite" parent="UI/ArenaSellector/Label" index="4"]
+visible = false
+light_mask = 2
+texture = ExtResource( 16 )
+
+[node name="Sprite6" type="Sprite" parent="UI/ArenaSellector/Label" index="5"]
+visible = false
+light_mask = 2
+texture = ExtResource( 17 )
+
+[node name="BallSellector" parent="UI" instance=ExtResource( 7 )]
+position = Vector2( 0, 30 )
+scale = Vector2( 2, 2 )
+
+[node name="Sprite1" parent="UI/BallSellector/Label" index="0"]
+texture = ExtResource( 14 )
+
+[node name="Sprite2" parent="UI/BallSellector/Label" index="1"]
+texture = ExtResource( 13 )
+
+[node name="Play" type="Node2D" parent="UI"]
+position = Vector2( 0, 65 )
+scale = Vector2( 3, 3 )
+
+[node name="TextureButton" type="TextureButton" parent="UI/Play"]
+margin_left = -8.66667
+margin_top = -6.33333
+margin_right = 9.33333
+margin_bottom = 2.66667
+texture_normal = ExtResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 18 )
+
+[connection signal="pressed" from="UI/Play/TextureButton" to="." method="_play"]
+
+[editable path="UI/ArenaSellector"]
+[editable path="UI/BallSellector"]

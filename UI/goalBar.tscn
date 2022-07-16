@@ -1,0 +1,118 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Bilder/UI/goalBarUnder.png" type="Texture" id=1]
+[ext_resource path="res://Bilder/UI/goalBarOver.png" type="Texture" id=2]
+[ext_resource path="res://Bilder/UI/goalBarProgress.png" type="Texture" id=3]
+[ext_resource path="res://UI/goalBar.gd" type="Script" id=4]
+[ext_resource path="res://Bilder/Effects/orange.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=8]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.130435, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 20, 0 )
+initial_velocity = 40.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 10.0
+angle = 720.0
+angle_random = 1.0
+scale = 10.0
+scale_random = 0.5
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="Animation" id=1]
+resource_name = "OUCH"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/Particles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.00398521, 0.0294445, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D/Particles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="GoalBar" type="Control"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 180.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 170, 45 )
+script = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2( 5, 5 )
+
+[node name="Particles2D" type="Particles2D" parent="Node2D"]
+material = SubResource( 8 )
+position = Vector2( 17.4, 0.8 )
+emitting = false
+amount = 60
+visibility_rect = Rect2( -60, -15, 120, 35 )
+process_material = SubResource( 3 )
+texture = ExtResource( 5 )
+
+[node name="TextureProgress" type="TextureProgress" parent="Node2D"]
+margin_right = 34.0
+margin_bottom = 9.0
+rect_min_size = Vector2( 32, 7 )
+value = 55.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/OUCH = SubResource( 1 )
+anims/RESET = SubResource( 2 )
