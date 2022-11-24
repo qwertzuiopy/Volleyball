@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Bilder/ControlSetup/Plus.png" type="Texture" id=2]
+[ext_resource path="res://Bilder/ControlSetup/ControlBox.png" type="Texture" id=3]
+[ext_resource path="res://UI/PlayerSelector.gd" type="Script" id=4]
+
+[node name="PlayerSelector" type="TextureButton"]
+margin_right = 16.0
+margin_bottom = 22.0
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="Which" type="Label" parent="."]
+margin_top = 21.0
+margin_right = 80.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = ExtResource( 1 )
+text = "---"
+align = 1
+
+[node name="Controls" type="Label" parent="."]
+margin_top = 6.0
+margin_right = 160.0
+margin_bottom = 86.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+autowrap = true
+
+[node name="Plus" type="Sprite" parent="."]
+position = Vector2( 8, 10 )
+texture = ExtResource( 2 )

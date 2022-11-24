@@ -1,7 +1,7 @@
 extends Node2D
 
-export(float) var distance = 5
-export(float) var speed = 10
+export(float) var distance = 5.0
+export(float) var speed = 10.0
 onready var line = $Node/Line2D;
 var points = [];
 

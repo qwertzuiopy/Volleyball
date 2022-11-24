@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Bilder/Effects/eyes.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.475 ), 0.0, 2.61991, 0, 0, Vector2( 0.651685, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.17249, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+lifetime_randomness = 1.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 40.79
+angular_velocity = 594.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 1.0
+scale = 10.0
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[node name="Eyes" type="Particles2D"]
+modulate = Color( 2, 2, 2, 1 )
+material = SubResource( 6 )
+position = Vector2( 0, 30 )
+amount = 20
+lifetime = 10.0
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )

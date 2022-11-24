@@ -1,4 +1,5 @@
 extends Node
 
-var Ball:int = 0
 var Arena:int = 0
+var Controls = []
+var Shake:int = 0

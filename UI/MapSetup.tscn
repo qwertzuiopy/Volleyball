@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/MapSetup.gd" type="Script" id=1]
+[ext_resource path="res://Blocks/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Effects/CameraShake.gd" type="Script" id=3]
+[ext_resource path="res://Bilder/Blocks/spike.png" type="Texture" id=4]
+[ext_resource path="res://Balls/SquareBall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Effects/Environment.tres" type="Environment" id=6]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/MapButton.tscn" type="PackedScene" id=8]
+
+[node name="MapSetup" type="Node2D"]
+script = ExtResource( 1 )
+player_scene = ExtResource( 7 )
+
+[node name="ScaleBuffer" type="Node2D" parent="."]
+
+[node name="TileMap" parent="ScaleBuffer" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -131074, 1, 0, -131073, 0, 0, -196608, 0, 0, -196607, 1, 1, -65540, 1, 0, -65539, 0, 0, -65538, 1, 65537, -131071, 1, 65536, -131070, 0, 0, -131069, 1, 1, -5, 1, 0, -4, 1, 65537, -65533, 1, 65536, -65532, 0, 0, 65531, 0, 0, 65532, 1, 1, 4, 1, 65537, 131067, 0, 0, 131068, 0, 0, 131070, 2, 0, 65536, 2, 0, 65538, 2, 0, 65540, 0, 0, 196603, 0, 0, 196604, 0, 0, 196606, 0, 0, 131072, 0, 0, 131074, 0, 0, 131076, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327675, 1, 65536, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 1, 65537 )
+
+[node name="Spikes" type="Node2D" parent="ScaleBuffer"]
+
+[node name="Spike" type="Sprite" parent="ScaleBuffer/Spikes"]
+position = Vector2( -88, -24 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+
+[node name="Spike9" type="Sprite" parent="ScaleBuffer/Spikes"]
+position = Vector2( 120, 8.00002 )
+rotation = -1.57079
+texture = ExtResource( 4 )
+
+[node name="Spike10" type="Sprite" parent="ScaleBuffer/Spikes"]
+position = Vector2( 120, 24 )
+rotation = -1.57079
+texture = ExtResource( 4 )
+
+[node name="Spike2" type="Sprite" parent="ScaleBuffer/Spikes"]
+position = Vector2( -72, -24 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+
+[node name="SquareBall" parent="ScaleBuffer" instance=ExtResource( 5 )]
+position = Vector2( -1, -17 )
+rotation = -0.785397
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ScaleBuffer/SquareBall"]
+remote_path = NodePath("../../../Camera")
+
+[node name="Players" type="Node2D" parent="ScaleBuffer"]
+
+[node name="Maps" type="Node2D" parent="ScaleBuffer"]
+
+[node name="Map1" parent="ScaleBuffer/Maps" instance=ExtResource( 8 )]
+position = Vector2( -80, 77 )
+
+[node name="Map2" parent="ScaleBuffer/Maps" instance=ExtResource( 8 )]
+position = Vector2( -16, 76 )
+map = 1
+text = "hoops"
+
+[node name="Map3" parent="ScaleBuffer/Maps" instance=ExtResource( 8 )]
+position = Vector2( 50, 76 )
+
+[node name="Map4" parent="ScaleBuffer/Maps" instance=ExtResource( 8 )]
+position = Vector2( 111, 75 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -1, -17 )
+rotation = -0.785397
+current = true
+zoom = Vector2( 0.3, 0.3 )
+smoothing_enabled = true
+script = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 6 )

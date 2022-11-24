@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Bilder/orange_player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Bilder/Effects/blue.png" type="Texture" id=4]
 [ext_resource path="res://Effects/Jump.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Bilder/orange_eye.png" type="Texture" id=6]
+[ext_resource path="res://UI/Font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Effects/Dash.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.1
@@ -51,6 +53,8 @@ anim_offset = 1.0
 anim_offset_random = 1.0
 
 [node name="Player" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 5
 physics_material_override = SubResource( 2 )
 gravity_scale = 1.7
 contacts_reported = 10
@@ -65,11 +69,11 @@ initial_jump_strength = 50.0
 air_jump_strength = 5.0
 max_jump_time = 0.2
 max_air_jumps = 100
-dash_strength = 100.0
 down_strength = 200.0
 standing_strength = 15.0
 hiting_power = 10.0
 hiting_power_upwards = 15.0
+dasheffect = ExtResource( 8 )
 
 [node name="JumpEffect" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 5 )
@@ -118,6 +122,19 @@ texture = ExtResource( 6 )
 visible = false
 position = Vector2( 2.69899, 0.449841 )
 texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -5.0
+margin_top = -9.0
+margin_right = 29.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = ExtResource( 7 )
+text = "1"
+align = 1
+
+[node name="DashRay" type="RayCast2D" parent="."]
+collision_mask = 5
 
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 [connection signal="timeout" from="JumpTimer" to="." method="stop_jump"]

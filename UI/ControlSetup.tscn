@@ -1,0 +1,250 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://UI/PlayerSelector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effects/Environment.tres" type="Environment" id=2]
+[ext_resource path="res://UI/ControlSetup.gd" type="Script" id=3]
+[ext_resource path="res://UI/Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Blocks/SquareBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bilder/Effects/black.png" type="Texture" id=6]
+[ext_resource path="res://Effects/Eyes.tscn" type="PackedScene" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("..:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("..:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("..:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.152978, 0.0998485, 1.1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 1, -0.147022, -0.101618, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("..:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.1, -0.0965393, 0.9, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.1, 0.0879974, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5, 2 )
+}
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="ControlSetup" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 2, 2 )
+
+[node name="Node2D" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -511, -260 )
+
+[node name="Eyes" parent="ParallaxBackground/ParallaxLayer/Node2D" instance=ExtResource( 7 )]
+position = Vector2( 513, 298 )
+scale = Vector2( 3, 3 )
+
+[node name="Blocks" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Node2D"]
+position = Vector2( 157, 119 )
+scale = Vector2( 7, 7 )
+
+[node name="SquareBlock" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 0.300001, -0.499996 )
+
+[node name="SquareBlock2" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 37.2, 50.1 )
+
+[node name="SquareBlock3" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 73.6, -8.3 )
+
+[node name="SquareBlock4" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 89.6, 55.8 )
+
+[node name="SquareBlock5" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 92.1, 14.4 )
+
+[node name="SquareBlock6" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( -9.79999, 41.8 )
+
+[node name="SquareBlock7" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 30.6, -17.4 )
+
+[node name="SquareBlock8" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( -12.3, -19.8 )
+
+[node name="SquareBlock9" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( -35.5, 8.9 )
+
+[node name="SquareBlock19" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 17, -28.4 )
+
+[node name="SquareBlock10" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( -23.7, 35.6 )
+
+[node name="SquareBlock11" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 1, 66.6 )
+
+[node name="SquareBlock12" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 72.4, 65.2 )
+
+[node name="SquareBlock18" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 37.6, 85.6 )
+
+[node name="SquareBlock13" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 126.6, 33.4 )
+
+[node name="SquareBlock14" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 47.3, -45.9 )
+
+[node name="SquareBlock15" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 86.1, -44.6 )
+
+[node name="SquareBlock16" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 109.2, -21.7 )
+
+[node name="SquareBlock17" parent="ParallaxBackground/ParallaxLayer/Node2D/Blocks" instance=ExtResource( 5 )]
+position = Vector2( 128.5, -2.8 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer/Node2D"]
+modulate = Color( 1, 1, 1, 0.466667 )
+margin_left = -602.0
+margin_top = -544.0
+margin_right = 1739.0
+margin_bottom = 1233.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+
+[node name="ScaleBuffer" type="Node2D" parent="."]
+position = Vector2( -385, -193 )
+scale = Vector2( 7, 7 )
+
+[node name="PlayerSelector1" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = -8.28573
+margin_top = 16.8571
+margin_right = 7.71427
+margin_bottom = 38.8571
+
+[node name="PlayerSelector2" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 10.1428
+margin_top = 17.0
+margin_right = 26.1428
+margin_bottom = 39.0
+
+[node name="PlayerSelector3" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 28.1428
+margin_top = 17.2857
+margin_right = 44.1428
+margin_bottom = 39.2857
+
+[node name="PlayerSelector4" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 46.8571
+margin_top = 17.0
+margin_right = 62.8571
+margin_bottom = 39.0
+
+[node name="PlayerSelector5" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 66.1428
+margin_top = 17.2857
+margin_right = 82.1429
+margin_bottom = 39.2857
+
+[node name="PlayerSelector6" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 84.1428
+margin_top = 16.8571
+margin_right = 100.143
+margin_bottom = 38.8571
+
+[node name="PlayerSelector7" parent="ScaleBuffer" instance=ExtResource( 1 )]
+margin_left = 102.0
+margin_top = 17.1429
+margin_right = 118.0
+margin_bottom = 39.1429
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )
+
+[node name="OkPositionBuffer" type="Node2D" parent="."]
+position = Vector2( 1, 200 )
+
+[node name="Ok" type="Button" parent="OkPositionBuffer"]
+margin_left = -66.336
+margin_top = -119.917
+margin_right = -46.336
+margin_bottom = -91.9169
+rect_scale = Vector2( 7, 7 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 1 )
+text = "OK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OkPositionBuffer"]
+root_node = NodePath("../Ok")
+autoplay = "idle"
+anims/RESET = SubResource( 7 )
+anims/idle = SubResource( 6 )
+
+[node name="Cancel" type="Button" parent="."]
+margin_left = -503.0
+margin_top = 210.0
+margin_right = -449.0
+margin_bottom = 244.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 1 )
+text = "Cancel"
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+
+[connection signal="mouse_entered" from="OkPositionBuffer/Ok" to="." method="_on_Ok_mouse_entered"]
+[connection signal="pressed" from="OkPositionBuffer/Ok" to="." method="_on_Ok_pressed"]
+[connection signal="mouse_entered" from="Cancel" to="." method="_on_Ok_mouse_entered"]
+[connection signal="pressed" from="Cancel" to="." method="_on_Cancel_pressed"]

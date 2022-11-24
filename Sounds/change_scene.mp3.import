@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/change_scene.mp3-483121084ab46d6fa235c4a05004b683.mp3str"
+
+[deps]
+
+source_file="res://Sounds/change_scene.mp3"
+dest_files=[ "res://.import/change_scene.mp3-483121084ab46d6fa235c4a05004b683.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
