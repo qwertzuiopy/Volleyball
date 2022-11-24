@@ -24,7 +24,7 @@ func update_label():
 	
 	Label.get_child(currentItem).visible = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if animating:
 		last.position.x = lerp(last.position.x, target, 0.1)
 		next.position.x = lerp(next.position.x, 0, 0.1)

@@ -49,9 +49,10 @@ anim_offset_random = 1.0
 
 [node name="SquareBall" type="RigidBody2D"]
 collision_layer = 3
-mass = 0.5
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.7
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 4 )
 
 [node name="SolidTrail" parent="." instance=ExtResource( 2 )]
@@ -71,5 +72,7 @@ texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_bounce"]
 
 [editable path="SolidTrail"]

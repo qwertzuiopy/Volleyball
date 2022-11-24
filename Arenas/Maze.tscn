@@ -1,0 +1,270 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Effects/CameraShake.gd" type="Script" id=1]
+[ext_resource path="res://Arenas/Maze.gd" type="Script" id=2]
+[ext_resource path="res://Bilder/Blocks/spike.png" type="Texture" id=3]
+[ext_resource path="res://Effects/Steam.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Blocks/Death.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Blocks/TileMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Balls/RoundBall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Spawnpoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bilder/Blocks/spike_blue.png" type="Texture" id=9]
+[ext_resource path="res://Bilder/Effects/blue.png" type="Texture" id=10]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.15528, 0.714286, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.7
+emission_shape = 2
+emission_box_extents = Vector3( 32, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.1
+angle = 720.0
+angle_random = 1.0
+scale = 4.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 3.80273, 0, 0, Vector2( 1, 0 ), -4.38258, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 300, 150, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 1.0
+scale_curve = SubResource( 7 )
+
+[node name="Simple" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="SquareBall" parent="." instance=ExtResource( 7 )]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SquareBall"]
+remote_path = NodePath("../../Camera")
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 64 )
+z_index = 1
+tile_data = PoolIntArray( -327687, 1, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 1, 1, -393214, 1, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 1, 1, -262152, 1, 0, -262151, 1, 65537, -262147, 1, 65536, -262146, 0, 0, -262145, 1, 1, -327680, 1, 0, -327679, 0, 0, -327678, 1, 65537, -327674, 1, 65536, -327673, 1, 1, -196616, 0, 0, -196609, 1, 65536, -262144, 1, 65537, -262137, 0, 0, -131080, 0, 0, -131075, 2, 0, -196606, 2, 0, -196601, 0, 0, -65544, 1, 65536, -65543, 1, 1, -65539, 0, 0, -131070, 0, 0, -131066, 1, 0, -131065, 1, 65537, -7, 1, 65536, -6, 0, 0, -5, 0, 0, -4, 0, 0, -3, 1, 65537, -2, 1, 1, -65535, 1, 0, -65534, 1, 65536, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 1, 65537, 65534, 1, 65536, 65535, 0, 0, 0, 0, 0, 1, 1, 65537 )
+
+[node name="Effects" type="Node2D" parent="."]
+position = Vector2( 0, 49 )
+
+[node name="SteamLeft" parent="Effects" instance=ExtResource( 4 )]
+material = SubResource( 4 )
+position = Vector2( -147, -17 )
+process_material = SubResource( 1 )
+
+[node name="SteamRight" parent="Effects" instance=ExtResource( 4 )]
+material = SubResource( 4 )
+position = Vector2( 145, -17 )
+process_material = SubResource( 1 )
+texture = ExtResource( 10 )
+
+[node name="Spikes" type="Node2D" parent="."]
+position = Vector2( 0, -32 )
+
+[node name="Sprite" type="Sprite" parent="Spikes"]
+position = Vector2( -152, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="Spikes"]
+position = Vector2( -136, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="Spikes"]
+position = Vector2( -120, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite12" type="Sprite" parent="Spikes"]
+position = Vector2( -200, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite13" type="Sprite" parent="Spikes"]
+position = Vector2( -184, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite14" type="Sprite" parent="Spikes"]
+position = Vector2( -168, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="Spikes"]
+position = Vector2( -104, 56 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="Spikes"]
+position = Vector2( 104, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite6" type="Sprite" parent="Spikes"]
+position = Vector2( 120, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite7" type="Sprite" parent="Spikes"]
+position = Vector2( 136, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite8" type="Sprite" parent="Spikes"]
+position = Vector2( 152, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite9" type="Sprite" parent="Spikes"]
+position = Vector2( 168, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite10" type="Sprite" parent="Spikes"]
+position = Vector2( 184, 56 )
+texture = ExtResource( 9 )
+
+[node name="Sprite11" type="Sprite" parent="Spikes"]
+position = Vector2( 200, 56 )
+texture = ExtResource( 9 )
+
+[node name="DeathLeft" parent="." instance=ExtResource( 5 )]
+position = Vector2( -149, 31 )
+
+[node name="CollisionShape2D" parent="DeathLeft" index="0"]
+position = Vector2( 3.5, 0.5 )
+
+[node name="DeathRight" parent="." instance=ExtResource( 5 )]
+position = Vector2( 145, 32 )
+rotation = 3.14159
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.23, 0.23 )
+limit_left = -230
+limit_top = -100
+limit_right = 230
+limit_bottom = 70
+smoothing_enabled = true
+script = ExtResource( 1 )
+
+[node name="Spawns" type="Node2D" parent="."]
+position = Vector2( 0, 49 )
+
+[node name="SpawnpoinRedt1" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( -35, -76 )
+
+[node name="SpawnpoinRedt3" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( -35, -33 )
+
+[node name="SpawnpoinRedt2" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( -35, -62 )
+
+[node name="SpawnpointRed3" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( -35, -49 )
+
+[node name="SpawnpointBlue4" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( 31, -49 )
+isRed = false
+
+[node name="SpawnpointBlue5" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( 31, -63 )
+isRed = false
+
+[node name="SpawnpointBlue6" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( 31, -77 )
+isRed = false
+
+[node name="SpawnpointBlue7" parent="Spawns" instance=ExtResource( 8 )]
+position = Vector2( 31, -34 )
+isRed = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 2, 2 )
+
+[node name="Particles2D" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, -12 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D2" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -8, -256 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D3" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 421, -150 )
+rotation = 1.57079
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D4" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -444, -75 )
+rotation = 1.57079
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D5" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 22, 225 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D6" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 603, 263 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D7" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -636, 310 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[node name="Particles2D8" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 24, -503 )
+amount = 60
+lifetime = 5.0
+visibility_rect = Rect2( -400, -200, 800, 400 )
+process_material = SubResource( 8 )
+
+[connection signal="body_entered" from="DeathLeft" to="." method="_on_DeathLeft_body_entered"]
+[connection signal="body_entered" from="DeathRight" to="." method="_on_DeathRight_body_entered"]
+
+[editable path="DeathLeft"]

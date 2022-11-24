@@ -1,141 +1,220 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://BaseArena.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Blocks/SquareBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Blocks/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Effects/CameraShake.gd" type="Script" id=2]
 [ext_resource path="res://Bilder/Blocks/spike.png" type="Texture" id=3]
+[ext_resource path="res://Balls/RoundBall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Blocks/Death.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Effects/Steam.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Spawnpoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Arenas/Simple.gd" type="Script" id=8]
+[ext_resource path="res://Bilder/Blocks/spike_blue.png" type="Texture" id=9]
+[ext_resource path="res://Bilder/Effects/blue.png" type="Texture" id=10]
 
-[node name="Simple" instance=ExtResource( 1 )]
+[sub_resource type="CanvasItemMaterial" id=4]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[node name="Sprite" type="Sprite" parent="Spikes" index="0"]
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.15528, 0.714286, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.7
+emission_shape = 2
+emission_box_extents = Vector3( 32, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 0.1
+angle = 720.0
+angle_random = 1.0
+scale = 4.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 3.80273, 0, 0, Vector2( 1, 0 ), -4.38258, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 150, 150, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 10.0
+scale_random = 1.0
+scale_curve = SubResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3, 52 )
+
+[node name="Simple" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="SquareBall" parent="." instance=ExtResource( 4 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 63 )
+z_index = 1
+tile_data = PoolIntArray( -262148, 1, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 1, 1, -196613, 1, 0, -196612, 1, 65537, -262142, 1, 65536, -262141, 1, 1, -131077, 0, 0, -196605, 0, 0, -65541, 0, 0, -131069, 0, 0, -5, 1, 65536, -4, 1, 1, -1, 2, 0, -65534, 1, 0, -65533, 1, 65537, 65532, 1, 65536, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 65537, 131070, 1, 65536, 131071, 0, 0, 65536, 1, 65537 )
+
+[node name="Effects" type="Node2D" parent="."]
+position = Vector2( 0, 49 )
+
+[node name="SteamLeft" parent="Effects" instance=ExtResource( 6 )]
+material = SubResource( 4 )
+position = Vector2( -58, 12 )
+process_material = SubResource( 1 )
+
+[node name="SteamRight" parent="Effects" instance=ExtResource( 6 )]
+material = SubResource( 4 )
+position = Vector2( 58, 12 )
+process_material = SubResource( 1 )
+texture = ExtResource( 10 )
+
+[node name="Spikes" type="Node2D" parent="."]
+position = Vector2( 0, 49 )
+
+[node name="Sprite" type="Sprite" parent="Spikes"]
 position = Vector2( -104, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite2" type="Sprite" parent="Spikes" index="1"]
+[node name="Sprite2" type="Sprite" parent="Spikes"]
 position = Vector2( -88, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite3" type="Sprite" parent="Spikes" index="2"]
+[node name="Sprite3" type="Sprite" parent="Spikes"]
 position = Vector2( -72, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite4" type="Sprite" parent="Spikes" index="3"]
+[node name="Sprite4" type="Sprite" parent="Spikes"]
 position = Vector2( -56, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite5" type="Sprite" parent="Spikes" index="4"]
+[node name="Sprite5" type="Sprite" parent="Spikes"]
 position = Vector2( -40, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite6" type="Sprite" parent="Spikes" index="5"]
+[node name="Sprite6" type="Sprite" parent="Spikes"]
 position = Vector2( -24, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite7" type="Sprite" parent="Spikes" index="6"]
+[node name="Sprite7" type="Sprite" parent="Spikes"]
 position = Vector2( -8, 6 )
 texture = ExtResource( 3 )
 
-[node name="Sprite8" type="Sprite" parent="Spikes" index="7"]
+[node name="Sprite8" type="Sprite" parent="Spikes"]
 position = Vector2( 8, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite9" type="Sprite" parent="Spikes" index="8"]
+[node name="Sprite9" type="Sprite" parent="Spikes"]
 position = Vector2( 24, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite10" type="Sprite" parent="Spikes" index="9"]
+[node name="Sprite10" type="Sprite" parent="Spikes"]
 position = Vector2( 40, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite11" type="Sprite" parent="Spikes" index="10"]
+[node name="Sprite11" type="Sprite" parent="Spikes"]
 position = Vector2( 56, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite12" type="Sprite" parent="Spikes" index="11"]
+[node name="Sprite12" type="Sprite" parent="Spikes"]
 position = Vector2( 72, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite13" type="Sprite" parent="Spikes" index="12"]
+[node name="Sprite13" type="Sprite" parent="Spikes"]
 position = Vector2( 88, 6 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 
-[node name="Sprite14" type="Sprite" parent="Spikes" index="13"]
+[node name="Sprite14" type="Sprite" parent="Spikes"]
 position = Vector2( 104, 6 )
 texture = ExtResource( 3 )
 
-[node name="SquareBlock1" parent="Blocks" index="0" instance=ExtResource( 2 )]
-position = Vector2( 0, 30 )
+[node name="DeathLeft" parent="." instance=ExtResource( 5 )]
+position = Vector2( -58, 62 )
 
-[node name="SquareBlock2" parent="Blocks" index="1" instance=ExtResource( 2 )]
-position = Vector2( -32, 30 )
+[node name="CollisionShape2D" parent="DeathLeft" index="0"]
+position = Vector2( 16, 0.5 )
 
-[node name="SquareBlock3" parent="Blocks" index="2" instance=ExtResource( 2 )]
-position = Vector2( -64, 30 )
+[node name="DeathRight" parent="." instance=ExtResource( 5 )]
+position = Vector2( 42, 62 )
 
-[node name="SquareBlock4" parent="Blocks" index="3" instance=ExtResource( 2 )]
-position = Vector2( -96, 30 )
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.23, 0.23 )
+script = ExtResource( 2 )
 
-[node name="SquareBlock5" parent="Blocks" index="4" instance=ExtResource( 2 )]
-position = Vector2( -128, 30 )
+[node name="Spawns" type="Node2D" parent="."]
+position = Vector2( 0, 49 )
 
-[node name="SquareBlock6" parent="Blocks" index="5" instance=ExtResource( 2 )]
-position = Vector2( -128, -2 )
+[node name="SpawnpoinRedt1" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( -58, -76 )
 
-[node name="SquareBlock7" parent="Blocks" index="6" instance=ExtResource( 2 )]
-position = Vector2( -128, -34 )
+[node name="SpawnpoinRedt3" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( -58, -33 )
 
-[node name="SquareBlock8" parent="Blocks" index="7" instance=ExtResource( 2 )]
-position = Vector2( -128, -66 )
+[node name="SpawnpoinRedt2" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( -58, -62 )
 
-[node name="SquareBlock9" parent="Blocks" index="8" instance=ExtResource( 2 )]
-position = Vector2( -128, -98 )
+[node name="SpawnpointRed3" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( -58, -49 )
 
-[node name="SquareBlock10" parent="Blocks" index="9" instance=ExtResource( 2 )]
-position = Vector2( -128, -130 )
+[node name="SpawnpointBlue4" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( 62, -49 )
+isRed = false
 
-[node name="SquareBlock11" parent="Blocks" index="10" instance=ExtResource( 2 )]
-position = Vector2( -96, -130 )
+[node name="SpawnpointBlue5" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( 62, -63 )
+isRed = false
 
-[node name="SquareBlock12" parent="Blocks" index="11" instance=ExtResource( 2 )]
-position = Vector2( -64, -130 )
+[node name="SpawnpointBlue6" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( 62, -77 )
+isRed = false
 
-[node name="SquareBlock13" parent="Blocks" index="12" instance=ExtResource( 2 )]
-position = Vector2( -32, -130 )
+[node name="SpawnpointBlue7" parent="Spawns" instance=ExtResource( 7 )]
+position = Vector2( 62, -34 )
+isRed = false
 
-[node name="SquareBlock14" parent="Blocks" index="13" instance=ExtResource( 2 )]
-position = Vector2( 0, -130 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="SquareBlock15" parent="Blocks" index="14" instance=ExtResource( 2 )]
-position = Vector2( 32, -130 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 2, 2 )
 
-[node name="SquareBlock16" parent="Blocks" index="15" instance=ExtResource( 2 )]
-position = Vector2( 64, -130 )
+[node name="Particles2D" type="Particles2D" parent="ParallaxBackground/ParallaxLayer"]
+amount = 30
+lifetime = 5.0
+process_material = SubResource( 5 )
 
-[node name="SquareBlock17" parent="Blocks" index="16" instance=ExtResource( 2 )]
-position = Vector2( 96, -130 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
-[node name="SquareBlock18" parent="Blocks" index="17" instance=ExtResource( 2 )]
-position = Vector2( 128, -130 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -13 )
+shape = SubResource( 8 )
+disabled = true
 
-[node name="SquareBlock19" parent="Blocks" index="18" instance=ExtResource( 2 )]
-position = Vector2( 128, -98 )
+[connection signal="body_entered" from="DeathLeft" to="." method="_on_DeathLeft_body_entered"]
+[connection signal="body_entered" from="DeathRight" to="." method="_on_DeathRight_body_entered"]
 
-[node name="SquareBlock20" parent="Blocks" index="19" instance=ExtResource( 2 )]
-position = Vector2( 128, -66 )
-
-[node name="SquareBlock21" parent="Blocks" index="20" instance=ExtResource( 2 )]
-position = Vector2( 128, -34 )
-
-[node name="SquareBlock22" parent="Blocks" index="21" instance=ExtResource( 2 )]
-position = Vector2( 128, -2 )
-
-[node name="SquareBlock23" parent="Blocks" index="22" instance=ExtResource( 2 )]
-position = Vector2( 128, 30 )
-
-[node name="SquareBlock24" parent="Blocks" index="23" instance=ExtResource( 2 )]
-position = Vector2( 96, 30 )
-
-[node name="SquareBlock25" parent="Blocks" index="24" instance=ExtResource( 2 )]
-position = Vector2( 64, 30 )
-
-[node name="SquareBlock26" parent="Blocks" index="25" instance=ExtResource( 2 )]
-position = Vector2( 32, 30 )
+[editable path="DeathLeft"]

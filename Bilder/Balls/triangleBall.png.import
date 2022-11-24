@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trail.png-de1c486bf704023f5db97fcccd1787e2.stex"
+path="res://.import/triangleBall.png-dfd87b5023108a8b366881a1cb93f7af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bilder/Effects/trail.png"
-dest_files=[ "res://.import/trail.png-de1c486bf704023f5db97fcccd1787e2.stex" ]
+source_file="res://Bilder/Balls/triangleBall.png"
+dest_files=[ "res://.import/triangleBall.png-dfd87b5023108a8b366881a1cb93f7af.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
